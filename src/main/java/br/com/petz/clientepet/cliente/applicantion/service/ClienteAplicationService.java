@@ -39,7 +39,7 @@ public class ClienteAplicationService implements ClienteService {
 	}
 
 	@Override
-	public ClienteDetalhadoResponse buscaTodosClientesAtravesId(UUID idCliente) {
+	public ClienteDetalhadoResponse buscaClientesAtravesId(UUID idCliente) {
 		log.info("[inicia] ClienteAplicationService - buscaTodosClientesAtravesId");
 		log.info("[finaliza] ClienteAplicationService - buscaTodosClientesAtravesId");
 		return null;
