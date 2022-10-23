@@ -34,7 +34,7 @@ public class RestResponseEntityExceptionHandler {
 	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	@ExceptionHandler(MethodArgumentNotValidException.class)
-	public Map<String, String> handleValidationExcepíons(MethodArgumentNotValidException ex) {
+	public Map<String, String> handleValidationExcepions(MethodArgumentNotValidException ex) {
 		Map<String, String> errors = new HashMap<>();
 		ex.getBindingResult().getAllErrors().forEach((error) -> {
 			String fieldName = ((FieldError) error).getField();
