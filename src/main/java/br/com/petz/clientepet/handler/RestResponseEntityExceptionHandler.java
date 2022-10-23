@@ -23,12 +23,12 @@ public class RestResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<ErrorApiResponse> handlerGenericException(Exception ex){
-		log.error("Exception: ",ex);
+		log.error("Exception: ", ex);
 		return ResponseEntity
 				.status(HttpStatus.INTERNAL_SERVER_ERROR)
 				.body(ErrorApiResponse.builder()
 						.description("INTERNAL SERVER ERROS!")
-						.message("POR FAVRO INFORME AO ADMISTRADOR DO SISTEMA")
+						.message("POR FAVOR INFORME AO ADMISTRADOR DO SISTEMA")
 						.build());
 		}
 	
