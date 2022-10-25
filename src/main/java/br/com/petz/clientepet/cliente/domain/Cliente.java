@@ -6,6 +6,8 @@ import java.util.UUID;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,6 +17,7 @@ import javax.validation.constraints.NotNull;
 
 import org.hibernate.validator.constraints.br.CPF;
 
+import br.com.petz.clientepet.cliente.applicantion.api.ClienteAlteracaoRequest;
 import br.com.petz.clientepet.cliente.applicantion.api.ClienteRequest;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -38,6 +41,7 @@ public class Cliente {
 	@NotBlank
 	private String celular;
 	private String telefone;
+	@Enumerated(EnumType.STRING)
 	private Sexo sexo;
 	@NotNull
 	private LocalDate dataNascimento;
@@ -60,5 +64,15 @@ public class Cliente {
 		this.cpf = clienteRequest.getCpf();
 		this.aceitaTermos = clienteRequest.getAceitaTermos();
 		this.dataHoraDoCadastro = LocalDateTime.now();	
+	}
+
+	public void altera(ClienteAlteracaoRequest clienteRequest) {
+		this.nomeCompleto = clienteRequest.getNomeCompleto();
+		this.celular = clienteRequest.getCelular();
+		this.telefone = clienteRequest.getTelefone();
+		this.sexo = clienteRequest.getSexo();
+		this.dataNascimento = clienteRequest.getDataNascimento();
+		this.aceitaTermos = clienteRequest.getAceitaTermos();
+		this.dataHoraDaUltimaAlteracao = LocalDateTime.now();			
 	}	
 }
