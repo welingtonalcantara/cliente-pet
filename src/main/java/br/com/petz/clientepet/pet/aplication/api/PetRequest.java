@@ -30,6 +30,6 @@ public class PetRequest {
 	@NotNull
 	private LocalDate dataNascimento;
 	private String rga;
-	private Integer Peso;
+	private Integer peso;
 
 }
