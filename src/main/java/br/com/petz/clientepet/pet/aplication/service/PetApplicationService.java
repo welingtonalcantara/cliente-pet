@@ -32,11 +32,14 @@ public class PetApplicationService implements PetService {
 	}
 
 	@Override
+	//como estamos na camada de aplicação . este PetClienteListResponse tem como objetivo atender a nossa aplicação cliente (o nosso front)
+	// O repository lida com os objetos de dominio, ou seja, o pet puro
 	public List<PetClienteListResponse> buscaPetsDoClienteComID(UUID idCliente) {
 		log.info("[start] PetApplicationService - buscaPetsDoClienteComID");
 		clienteService.buscaClienteAtravesId(idCliente);
+		List<Pet> petsDoCliente = petRepository.buscaPetsDoClienteComID(idCliente);
 		log.info("[finish] PetApplicationService - buscaPetsDoClienteComID");
-		return null;
+		return PetClienteListResponse.converte(petsDoCliente);
 	}
 
 }
