@@ -25,7 +25,6 @@ import lombok.NoArgsConstructor;
 @Getter
 @Entity
 public class Pet {	
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(columnDefinition = "uuid", name = "idPet", updatable = false, unique = true, nullable = false)
