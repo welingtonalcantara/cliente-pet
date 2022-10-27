@@ -8,6 +8,7 @@ import javax.validation.Valid;
 import org.springframework.stereotype.Service;
 
 import br.com.petz.clientepet.cliente.applicantion.service.ClienteService;
+import br.com.petz.clientepet.cliente.domain.Cliente;
 import br.com.petz.clientepet.pet.aplication.api.PetClienteDetalheResponse;
 import br.com.petz.clientepet.pet.aplication.api.PetClienteListResponse;
 import br.com.petz.clientepet.pet.aplication.api.PetRequest;
@@ -50,6 +51,13 @@ public class PetApplicationService implements PetService {
 		Pet pet = petRepository.buscaPetPeloId(idPet);
 		log.info("[finish] PetApplicationService - buscaPetDoClienteComID");
 		return new PetClienteDetalheResponse(pet);
+	}
+
+	@Override
+	public void deletaPetDoClienteComID(UUID idCliente, UUID idPet) {
+		log.info("[start] PetApplicationService - deletaPetDoClienteComID");
+
+		log.info("[finish] PetApplicationService - deletaPetDoClienteComID");		
 	}
 
 }

@@ -1,7 +1,6 @@
 package br.com.petz.clientepet.pet.aplication.api;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
 
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
