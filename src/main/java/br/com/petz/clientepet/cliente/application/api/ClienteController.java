@@ -22,7 +22,8 @@ public class ClienteController implements ClienteAPI {
 	public ClienteResponse postCliente(ClienteRequest clienteRequest) {
 		log.info("[iniciar] ClienteController - postCliente");
 		//começa a implementar controller - aula 03 01:04:00
-		//chamo clienteService e digo pra ele criarcliente e passo o clienteRequest e quero como resposta o ClienteResponse
+		//chamo clienteService e digo pra ele criar cliente e passo o clienteRequest e quero como resposta 
+		//o ClienteResponse
 		//clienteCriado é igual a clienteService.criaCliente(clienteRequest);
 		ClienteResponse clienteCriado = clienteService.criaCliente(clienteRequest);
 		log.info("[finaliza] ClienteController - postCliente");
