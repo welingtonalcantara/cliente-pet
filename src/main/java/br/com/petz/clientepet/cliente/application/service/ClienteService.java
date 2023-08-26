@@ -8,5 +8,6 @@ import br.com.petz.clientepet.cliente.application.api.ClienteResponse;
 
 public interface ClienteService {
 	ClienteResponse criaCliente(ClienteRequest clienteRequest);
+	//recebo cliente e depois converto em ClienteListResponse
 	List<ClienteListResponse> buscaTodosClientes();
 }
