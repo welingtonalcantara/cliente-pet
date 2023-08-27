@@ -1,11 +1,13 @@
 package br.com.petz.clientepet.cliente.application.api;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +25,9 @@ public interface ClienteAPI {
 
 	@GetMapping
 	@ResponseStatus(code = HttpStatus.OK)
-	//estou recebendo no @RequestBody
-	//contrato definido
 	List<ClienteListResponse> getTodosClientes();
+	
+	@GetMapping(value = "/{idCliente}")
+	@ResponseStatus(code = HttpStatus.OK)
+	ClienteDetalhadoResponse getclientesAtravesId(@PathVariable UUID idCliente);
 }
