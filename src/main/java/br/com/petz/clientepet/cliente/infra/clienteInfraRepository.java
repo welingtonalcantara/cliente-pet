@@ -1,6 +1,7 @@
 package br.com.petz.clientepet.cliente.infra;
 
 import java.util.List;
+import java.util.UUID;
 
 import org.springframework.stereotype.Repository;
 
@@ -29,6 +30,17 @@ public class clienteInfraRepository implements ClienteRepository {
 		List<Cliente> todosClientes = clienteSpringDataJPARepository.findAll();
 		log.info("[finaliza] clienteInfraRepository - salva");
 		return todosClientes;
+	}
+
+	@Override
+	public Cliente buscaClienteAtravesId(UUID idCliente) {
+		log.info("[inicia] buscaClienteAtravesId");
+		//----clienteSpringDataJPARepository retorna um optional. eu quero que vc pegue o que tá dentro do optional
+		// (que deve ser um cliente) e caso não tiver lance uma execeptional
+		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
+				.orElseThrow(() -> new RuntimeException("cliente não encontrado!"));
+		log.info("[finaliza] buscaClienteAtravesId");
+		return cliente;
 	}
 
 }
