@@ -36,13 +36,21 @@ public class clienteInfraRepository implements ClienteRepository {
 
 	@Override
 	public Cliente buscaClienteAtravesId(UUID idCliente) {
-		log.info("[inicia] buscaClienteAtravesId");
+		log.info("[inicia] clienteInfraRepository - buscaClienteAtravesId");
 		//----clienteSpringDataJPARepository retorna um optional. eu quero que vc pegue o que tá dentro do optional
 		// (que deve ser um cliente) e caso não tiver lance uma execeptional
 		Cliente cliente = clienteSpringDataJPARepository.findById(idCliente)
 				.orElseThrow(() -> APIException.build(HttpStatus.NOT_FOUND, "Cliente não encontrado!"));
-		log.info("[finaliza] buscaClienteAtravesId");
+		log.info("[finaliza]clienteInfraRepository - buscaClienteAtravesId");
 		return cliente;
+	}
+
+	@Override
+	public void deletaCliente(Cliente cliente) {
+		log.info("[inicia] clienteInfraRepository - deletaCliente");		
+		clienteSpringDataJPARepository.delete(cliente);
+		log.info("[finaliza] clienteInfraRepository - deletaCliente");	
+		
 	}
 
 }
