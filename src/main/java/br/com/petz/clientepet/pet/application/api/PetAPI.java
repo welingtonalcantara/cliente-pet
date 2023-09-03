@@ -34,5 +34,7 @@ public interface PetAPI {
 	@ResponseStatus(code = HttpStatus.OK)//ok quando tenho retorno no body
 	PetClienteDetalhadoResponse getPetDoclienteComId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
 	
-
+	@DeleteMapping(value = "/{idPet}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	void deletaClientesAtravesId(@PathVariable UUID idCliente, @PathVariable UUID idPet);
 }
