@@ -42,6 +42,6 @@ public interface PetAPI {
 	
 	@PatchMapping(value = "/{idPet}") //Não é necessario usar o PUT porque não vamos alterar o recurso todo
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	PetResponse patchPet(@PathVariable UUID idCliente, @PathVariable UUID idPet,
+	void patchPet(@PathVariable UUID idCliente, @PathVariable UUID idPet,
 			@Valid @RequestBody PetAlteracaoRequest petAlteracaoRequest);
 }
